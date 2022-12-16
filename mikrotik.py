@@ -22,16 +22,15 @@ with open(f'\\\\10.10.0.2\\c$\\Windows\\System32\\LogFiles\\IN{date3}.log', 'r',
 # Метод для переобразования из мака в логин DC
 def mac_sep(mac: str):
     mac = mac.split('@cap')[0].replace(':', '-')
-    true = False
+    true = True
     for item in mac_list:
-        for item1 in item:
-            if mac in item1:
-                true = True
-                pass
         if true:
-            mac = item[6]
-            pass
-    return mac
+            for item1 in item:
+                if mac in item1:
+                    true = False
+                    mac_item = item[6]
+                    pass
+    return mac_item
 
 
 # Данные для подключения к микротику
